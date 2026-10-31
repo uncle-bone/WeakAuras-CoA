@@ -1,6 +1,6 @@
 # WeakAuras-CoA v1.0.4
 
-> **[⬇ Download v1.0.4](https://github.com/downingwow/WeakAuras-CoA/releases/download/v1.0.4/WeakAuras-CoA-v1.0.4.zip)**
+> **[⬇ Download v1.0.4](https://github.com/uncle-bone/WeakAuras-CoA/releases/download/v1.0.4/WeakAuras-CoA-v1.0.4.zip)**
 
 **Current release: v1.0.4.** WeakAuras distribution for Conquest Reborn / WoW 3.3.5a. Install all six addon folders together in `Interface/AddOns`.
 
@@ -10,4 +10,4 @@ Clears generated options tables and the shared options cache when the WeakAuras 
 
 This build has not been verified in-game.
 
-Maintainer: Uncle Bone — https://github.com/downingwow
+Maintainer: Uncle Bone — https://github.com/uncle-bone
