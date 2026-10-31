@@ -1,0 +1,13 @@
+{
+  "version": "v1.0.1",
+  "prerelease": true,
+  "folders": [
+    "WeakAuras",
+    "WeakAurasArchive",
+    "WeakAurasModelPaths",
+    "WeakAurasOptions",
+    "WeakAurasStopMotion",
+    "WeakAurasTemplates"
+  ],
+  "extras": []
+}
