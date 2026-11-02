@@ -1,13 +1,11 @@
-# WeakAuras-CoA v1.0.4
+# WeakAuras-CoA v1.0.5
 
-> **[⬇ Download v1.0.4](https://github.com/uncle-bone/WeakAuras-CoA/releases/download/v1.0.4/WeakAuras-CoA-v1.0.4.zip)**
+> **[⬇ Download v1.0.5](https://github.com/uncle-bone/WeakAuras-CoA/releases/download/v1.0.5/WeakAuras-CoA-v1.0.5.zip)**
 
-**Current release: v1.0.4.** WeakAuras distribution for Conquest Reborn / WoW 3.3.5a. Install all six addon folders together in `Interface/AddOns`.
+**Current stable release: v1.0.5.** WeakAuras distribution for Ascension Conquest Reborn / WoW 3.3.5a. Extract the ZIP into `World of Warcraft/Interface/AddOns/`; it contains the addon folders ready to install together.
 
-## Previous build: v1.0.3 — Memory optimization test
+This maintenance release removes the obsolete Beta-version comparison, corrects the recurring restart warning, and synchronizes the internal version and AddOns panel metadata. Existing auras and SavedVariables are preserved. Memory improvements beyond v1.0.4 have not been benchmarked or verified in-game.
 
-Clears generated options tables and the shared options cache when the WeakAuras editor closes; those tables can rebuild when needed. Existing aura definitions and active trigger states are preserved.
+**Maintainer:** Uncle Bone · [@uncle-bone](https://github.com/uncle-bone)
 
-This build has not been verified in-game.
-
-Maintainer: Uncle Bone — https://github.com/uncle-bone
+Original WeakAuras Team attribution and third-party licenses are retained.
