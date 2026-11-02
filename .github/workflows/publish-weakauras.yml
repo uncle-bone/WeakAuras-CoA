@@ -31,14 +31,14 @@ jobs:
           for folder in folders:
               assert re.fullmatch(r'[A-Za-z0-9_-]+',folder)
               assert (root/folder).is_dir()
-              tocs=list((root/folder).glob('*.toc'))
-              assert tocs, folder
-              for toc in tocs:
-                  for line in toc.read_text(encoding='utf-8-sig').splitlines():
-                      line=line.strip()
-                      if not line or line.startswith('#'): continue
-                      target=toc.parent/line.replace('\\','/')
-                      assert target.is_file(),str(target)
+              # Validate only the active WoW 3.3.5a TOC; other flavor TOCs are upstream artifacts.
+              toc=root/folder/(folder+'.toc')
+              assert toc.is_file(), str(toc)
+              for line in toc.read_text(encoding='utf-8-sig').splitlines():
+                  line=line.strip()
+                  if not line or line.startswith('#'): continue
+                  target=toc.parent/line.replace('\\','/')
+                  assert target.is_file(),str(target)
           assert 'local versionString = "'+version[1:]+'"' in (root/'WeakAuras/Init.lua').read_text()
           assert '## Version: '+version[1:] in (root/'WeakAuras/WeakAuras.toc').read_text()
           output=root/('WeakAuras-CoA-'+version+'.zip')
