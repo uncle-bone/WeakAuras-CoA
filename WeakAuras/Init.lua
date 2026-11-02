@@ -9,7 +9,7 @@ WeakAuras.halfWidth = WeakAuras.normalWidth / 2
 WeakAuras.doubleWidth = WeakAuras.normalWidth * 2
 
 local versionStringFromToc = GetAddOnMetadata("WeakAuras", "Version")
-local versionString = "1.0.1"
+local versionString = "1.0.5"
 -- Year, Month, Day, Hour, Minute, Seconds
 local buildTime = "2025".."11".."29".."04".."45".."00"
 local isTTSEnabled = C_VoiceChat and C_VoiceChat.SpeakText and true or false
@@ -102,11 +102,11 @@ if not libsAreOk then
   WeakAuras.prettyPrint("WeakAuras is missing necessary libraries. Please reinstall a proper package.")
 end
 
--- CoA builds use plain semantic versions in the TOC, not upstream " Beta" suffixes.
+-- CoA uses its own plain release versions; no upstream Beta suffix.
 -- Only warn when the actual packaged code and TOC versions disagree.
 if versionStringFromToc and versionStringFromToc ~= "Dev"
     and versionString ~= versionStringFromToc
-    and versionString ~= versionStringFromToc .. " Beta" then
+    then
   WeakAuras.prettyPrint("WeakAuras version mismatch detected. Check that all addon folders were updated together.")
 end
 
