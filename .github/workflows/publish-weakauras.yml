@@ -1,36 +1,60 @@
-name: Publish WeakAuras-CoA v1.0.1
+name: Build and publish WeakAuras-CoA
 on:
   push:
     branches: [main]
-    paths: ['source-chunks/**']
+    paths: ['.release.json']
+  workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: weakauras-release
+  cancel-in-progress: false
 jobs:
-  publish:
-    if: github.event.head_commit.message == 'Stage WeakAuras-CoA v1.0.1'
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
-      - name: Rebuild ZIP, extract source, and publish
+      - name: Validate, package and publish
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           set -euo pipefail
-          mkdir -p /tmp/weakauras-source
-          cat source-chunks/*.b64 | base64 -d > /tmp/weakauras-source/input.zip
-          unzip -t /tmp/weakauras-source/input.zip
-          unzip -q /tmp/weakauras-source/input.zip -d /tmp/weakauras-source/extracted
-          for folder in WeakAuras WeakAurasArchive WeakAurasModelPaths WeakAurasOptions WeakAurasStopMotion WeakAurasTemplates; do
-            test -d "/tmp/weakauras-source/extracted/$folder"
-            cp -a "/tmp/weakauras-source/extracted/$folder" .
-          done
-          cp /tmp/weakauras-source/input.zip WeakAuras-CoA-v1.0.1.zip
-          rm -rf source-chunks
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Extract WeakAuras-CoA v1.0.1 addon source"
-          git push origin HEAD:main
-          gh release create v1.0.1 WeakAuras-CoA-v1.0.1.zip --repo "$GITHUB_REPOSITORY" --target "$(git rev-parse HEAD)" --title "WeakAuras-CoA v1.0.1" --prerelease --notes-file RELEASE-NOTES.md
+          python3 - <<'PY'
+          import json, pathlib, zipfile, os, re
+          root=pathlib.Path('.')
+          cfg=json.loads((root/'.release.json').read_text())
+          version=cfg['version']
+          assert re.fullmatch(r'v[0-9]+(?:\.[0-9]+)+', version)
+          folders=cfg['folders']
+          assert len(folders)==6 and len(set(folders))==6
+          for folder in folders:
+              assert re.fullmatch(r'[A-Za-z0-9_-]+',folder)
+              assert (root/folder).is_dir()
+              tocs=list((root/folder).glob('*.toc'))
+              assert tocs, folder
+              for toc in tocs:
+                  for line in toc.read_text(encoding='utf-8-sig').splitlines():
+                      line=line.strip()
+                      if not line or line.startswith('#'): continue
+                      target=toc.parent/line.replace('\\','/')
+                      assert target.is_file(),str(target)
+          assert 'local versionString = "'+version[1:]+'"' in (root/'WeakAuras/Init.lua').read_text()
+          assert '## Version: '+version[1:] in (root/'WeakAuras/WeakAuras.toc').read_text()
+          output=root/('WeakAuras-CoA-'+version+'.zip')
+          with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED) as z:
+              for folder in folders:
+                  for p in sorted((root/folder).rglob('*')):
+                      if p.is_file(): z.write(p,p.as_posix())
+          with zipfile.ZipFile(output) as z:
+              assert z.testzip() is None
+              assert len(z.namelist())>100
+          with open(os.environ['GITHUB_ENV'],'a') as f:
+              f.write('RELEASE_VERSION='+version+'\n')
+              f.write('RELEASE_ASSET='+str(output)+'\n')
+          PY
+          if gh release view "$RELEASE_VERSION" >/dev/null 2>&1; then
+            echo "Release already exists; refusing overwrite"
+            exit 1
+          fi
+          gh release create "$RELEASE_VERSION" "$RELEASE_ASSET" --target "$GITHUB_SHA" --title "WeakAuras-CoA $RELEASE_VERSION" --notes-file RELEASE-NOTES.md
