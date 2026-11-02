@@ -53,6 +53,8 @@ jobs:
               f.write('RELEASE_VERSION='+version+'\n')
               f.write('RELEASE_ASSET='+str(output)+'\n')
           PY
+          RELEASE_VERSION="$(python3 -c 'import json; print(json.load(open(".release.json"))["version"])')"
+          RELEASE_ASSET="WeakAuras-CoA-${RELEASE_VERSION}.zip"
           if gh release view "$RELEASE_VERSION" >/dev/null 2>&1; then
             echo "Release already exists; refusing overwrite"
             exit 1
