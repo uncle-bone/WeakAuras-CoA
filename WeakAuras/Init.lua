@@ -102,8 +102,12 @@ if not libsAreOk then
   WeakAuras.prettyPrint("WeakAuras is missing necessary libraries. Please reinstall a proper package.")
 end
 
-if versionString ~= versionStringFromToc .. " Beta" and versionStringFromToc ~= "Dev" then
-  WeakAuras.prettyPrint("You need to restart your game client to complete the WeakAuras update!")
+-- CoA builds use plain semantic versions in the TOC, not upstream " Beta" suffixes.
+-- Only warn when the actual packaged code and TOC versions disagree.
+if versionStringFromToc and versionStringFromToc ~= "Dev"
+    and versionString ~= versionStringFromToc
+    and versionString ~= versionStringFromToc .. " Beta" then
+  WeakAuras.prettyPrint("WeakAuras version mismatch detected. Check that all addon folders were updated together.")
 end
 
 if not WeakAuras.IsLibsOK() then
