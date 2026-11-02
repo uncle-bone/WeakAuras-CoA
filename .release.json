@@ -10,5 +10,6 @@
     "WeakAurasTemplates"
   ],
   "extras": [],
-  "channel": "stable"
+  "channel": "stable",
+  "build": 2
 }
