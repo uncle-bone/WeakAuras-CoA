@@ -9,5 +9,6 @@
     "WeakAurasStopMotion",
     "WeakAurasTemplates"
   ],
-  "extras": []
+  "extras": [],
+  "channel": "stable"
 }
