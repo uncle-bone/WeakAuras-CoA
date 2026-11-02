@@ -1,6 +1,6 @@
 # WeakAuras-CoA v1.0.5
 
-> **[⬇ Download v1.0.5](https://github.com/uncle-bone/WeakAuras-CoA/releases/download/v1.0.5/WeakAuras-CoA-v1.0.5.zip)**
+> **[Download](https://github.com/uncle-bone/WeakAuras-CoA/releases/latest)**
 
 **Current stable release: v1.0.5.** WeakAuras distribution for Ascension Conquest Reborn / WoW 3.3.5a. Extract the ZIP into `World of Warcraft/Interface/AddOns/`; it contains the addon folders ready to install together.
 
