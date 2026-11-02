@@ -1,7 +1,9 @@
-# WeakAuras-CoA v1.0.1
+# WeakAuras-CoA v1.0.5
 
-Current maintainer-supplied package. Includes the complete six-folder addon package from the supplied ZIP.
+Stable CoA maintenance build. Removes obsolete Beta version matching and fixes the false restart warning on every login. Synchronizes the internal version and AddOns panel metadata.
 
-Marked prerelease pending in-game confirmation. In-game functionality is not claimed as verified.
+Memory improvements beyond v1.0.4 have not been benchmarked or verified in-game. Existing auras and SavedVariables remain unchanged.
 
-Maintainer: Uncle Bone — https://github.com/downingwow
+Maintainer: Uncle Bone — https://github.com/uncle-bone
+
+Original WeakAuras Team attribution and third-party licenses retained.
