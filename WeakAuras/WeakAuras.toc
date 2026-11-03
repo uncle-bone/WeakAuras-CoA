@@ -1,7 +1,7 @@
 ## Interface: 30300
 ## Title: WeakAuras-CoA
 ## Author: The WeakAuras Team
-## Version: 1.0.5
+## Version: 1.0.6
 ## IconTexture: Interface\AddOns\WeakAuras\Media\Textures\icon.blp
 ## X-Flavor: 3.3.5
 ## Notes: A powerful, comprehensive utility for displaying graphics and information based on buffs, debuffs, and other triggers.
