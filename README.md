@@ -1,6 +1,6 @@
 # WeakAuras-CoA v1.0.7
 
-****Current stable release: v1.0.7.** · [Download Here!](https://coa-research.unclebone.workers.dev/download/WeakAuras-CoA) · [Release notes](https://github.com/uncle-bone/WeakAuras-CoA/releases/tag/v1.0.7)
+**Latest stable release: v1.0.7** · [Download Here!](https://coa-research.unclebone.workers.dev/download/WeakAuras-CoA) · [Release notes](https://github.com/uncle-bone/WeakAuras-CoA/releases/tag/v1.0.7)
 
 WeakAuras-CoA is a maintained WeakAuras distribution for **Ascension Conquest of Azeroth / Conquest Reborn**, targeting **World of Warcraft 3.3.5a (Lua 5.1)**.
 
