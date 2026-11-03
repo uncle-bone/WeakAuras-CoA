@@ -1,6 +1,6 @@
 {
-  "version": "v1.0.6",
-  "prerelease": false,
+  "version": "v1.0.7",
+  "prerelease": true,
   "folders": [
     "WeakAuras",
     "WeakAurasArchive",
@@ -10,6 +10,6 @@
     "WeakAurasTemplates"
   ],
   "extras": [],
-  "channel": "stable",
-  "build": 3
+  "channel": "prerelease",
+  "build": 4
 }
