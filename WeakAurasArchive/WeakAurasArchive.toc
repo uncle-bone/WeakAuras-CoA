@@ -1,7 +1,7 @@
 ## Interface: 30300
 ## Title: WeakAuras Archive
 ## Author: The WeakAuras Team
-## Version: 1.0.6
+## Version: 1.0.7
 ## X-IconTexture: Interface\AddOns\WeakAuras\Media\WeakAurasLogo
 ## LoadOnDemand: 1
 ## SavedVariables: WeakAurasArchive
