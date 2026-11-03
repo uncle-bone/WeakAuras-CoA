@@ -1,7 +1,7 @@
 ## Interface: 30300
 ## Title: WeakAuras Templates
 ## Author: The WeakAuras Team
-## Version: 1.0.1
+## Version: 1.0.5
 ## IconTexture: Interface\AddOns\WeakAuras\Media\Textures\icon.blp
 ## Notes: Templates for WeakAuras
 ## Notes-esES: Plantillas para WeakAuras
