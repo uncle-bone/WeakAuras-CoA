@@ -1,6 +1,6 @@
-# WeakAuras-CoA v1.0.7 — Prerelease
+# WeakAuras-CoA v1.0.7 — Stable
 
-Fixes the actual root cause of the Options version mismatch: `WeakAurasOptions/VersionCheck.lua` hardcoded `optionsVersion = "1.0.1"`, independently of the TOC metadata. Now the internal Options check, core version, and all companion TOCs agree at 1.0.7. Includes all six addon folders. In-game validation pending.
+Fixes the actual root cause of the Options version mismatch: `WeakAurasOptions/VersionCheck.lua` hardcoded `optionsVersion = "1.0.1"`, independently of the TOC metadata. Now the internal Options check, core version, and all companion TOCs agree at 1.0.7. Includes all six addon folders. GitHub Actions packaging and integrity checks passed; in-game validation is still pending.
 
 # WeakAuras-CoA v1.0.6 — Stable
 
